@@ -1,9 +1,5 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DiiaUITests.POM
 {
@@ -19,11 +15,12 @@ namespace DiiaUITests.POM
         private readonly By _cookieAccept = By.CssSelector(".cookies-1_btn-1");
         
         private readonly By _firstServiceCard = By.XPath("(.//*[@id='gromadyanam']//a[@class = 'swiper_services-slide-title'])[position()=1]");
+                        
+        private readonly By _arrowToTheRight = By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-next swiper-btn-next'])");
 
-        private readonly By _navigateToServicePage = By.XPath("(.//*[@id='gromadyanam']//a[@class = 'swiper_services-slide-title'])[position()=1]");
+        private readonly By _arrowToTheLeft = //By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-next swiper-btn-next'])");
 
-
-
+        
         public MainPage GoToMainPage()
         {
             _webDriver.Navigate().GoToUrl("https://diia.gov.ua/");
@@ -38,6 +35,25 @@ namespace DiiaUITests.POM
         {
             _webDriver.FindElement(_firstServiceCard).Click();
         }
-              
+
+        //сценарий 2
+        public void ClickOnArrowToTheRightButton()
+        {
+            _webDriver.FindElement(_arrowToTheRight).Click();
+        }
+        //как сравнить лучше???
+
+
+        //сценарий 3
+
+        //если нужна таже кнопка? 2 шага повторяються
+        //public void ClickOnArrowToTheRightButton() 
+        //{
+        //    _webDriver.FindElement(_arrowToTheRight).Click();
+        //}
+        public void ClickOnArrowToTheLeftButton() 
+        {
+            _webDriver.FindElement(_arrowToTheLeft).Click();
+        }
     }
 }
