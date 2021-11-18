@@ -15,7 +15,7 @@ Scenario: Check navigation to service page from the popular service module
 Scenario: Check the swipe right the popular service by swiper right button
 	When I click on the swiper right button
 	Then Popular servises moved right on one position 
-	#как сравнить? что сервис про ковид пропал?
+	#как сравнить? что сервис про ковид пропал влево?
 
 Scenario: Check the swipe left the popular service by swiper right button
 	When I click on the swiper right button

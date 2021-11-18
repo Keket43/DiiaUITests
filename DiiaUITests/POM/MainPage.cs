@@ -19,8 +19,12 @@ namespace DiiaUITests.POM
         private readonly By _arrowToTheRight = By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-next swiper-btn-next'])");
 
         private readonly By _arrowToTheLeft = //By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-next swiper-btn-next'])");
-
         
+        private readonly By _searchInputField = By.CssSelector(".input form-search_input");
+
+        private readonly By _enterButton = By.CssSelector(".btn btn_search-main");
+                
+
         public MainPage GoToMainPage()
         {
             _webDriver.Navigate().GoToUrl("https://diia.gov.ua/");
@@ -55,5 +59,27 @@ namespace DiiaUITests.POM
         {
             _webDriver.FindElement(_arrowToTheLeft).Click();
         }
+
+
+        //сценарий 1 , по модулю Поиск
+        public void ClickOnSearchField()
+        {
+            _webDriver.FindElement(_searchInputField).Click();
+        }
+        public void ClickOnEnterButton()
+        {
+            _webDriver.FindElement(_enterButton).Click();
+        }
+
+        //сценарий 2 , по модулю Поиск
+        //public void ClickOnSearchField()
+        //{
+        //    _webDriver.FindElement(_searchInputField).Click();
+        //}
+        //public void ClickOnEnterButton()
+        //{
+        //    _webDriver.FindElement(_enterButton).Click();
+        //}
+
     }
 }
