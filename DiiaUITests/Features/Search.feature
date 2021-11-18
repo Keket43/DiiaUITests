@@ -3,13 +3,13 @@ Feature: Search
 As a user
 I want  to search information on main page
 In order to find quickly specific information
-#	
-#Background: 
-#Given Main page is open
+	
+Background: 
+Given Main page is open
 
-#@valid
-#Scenario: Check search results with valid input
-#	When I input "Взаємодія" in search field
+@valid
+Scenario: Check search results with valid input
+	When I input "Взаємодія" in search field
 #	When Click button Enter
 #	Then Open search result page with text 'За вашим запитом знайдено матеріалів: '
 #

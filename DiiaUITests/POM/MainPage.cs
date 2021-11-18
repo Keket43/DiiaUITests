@@ -15,12 +15,9 @@ namespace DiiaUITests.POM
         {
             _webDriver = webDriver;
         }
-
-        //private readonly By _cookieAccept = webDriver.FindElement(By.CssSelector("[class = btn btn-fill cookies-1_btn cookies-1_btn-1]"));
-
-        //private readonly By _cookieAccept = By.CssSelector("[class = btn btn-fill cookies-1_btn cookies-1_btn-1]");
-        private readonly By _cookieAccept = By.CssSelector("[class = cookies-1_btn-1]");
-
+              
+        private readonly By _cookieAccept = By.CssSelector(".cookies-1_btn-1");
+        
         private readonly By _firstServiceCard = By.XPath("(.//*[@id='gromadyanam']//a[@class = 'swiper_services-slide-title'])[position()=1]");
 
         private readonly By _navigateToServicePage = By.XPath("(.//*[@id='gromadyanam']//a[@class = 'swiper_services-slide-title'])[position()=1]");
@@ -41,11 +38,6 @@ namespace DiiaUITests.POM
         {
             _webDriver.FindElement(_firstServiceCard).Click();
         }
-
-        public void NavigateToTheServicePage()
-        {
-            _webDriver.FindElement(_navigateToServicePage).Click(); //не клик?? а что
-
-        }
+              
     }
 }

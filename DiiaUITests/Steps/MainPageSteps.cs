@@ -1,4 +1,5 @@
 ﻿using DiiaUITests.POM;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using TechTalk.SpecFlow;
@@ -11,13 +12,14 @@ namespace DiiaUITests.Steps
         private readonly ScenarioContext _scenarioContext;
         private readonly IWebDriver _webDriver;
         private readonly MainPage _mainPage;
+        private readonly ServicePageCOVID19 _servicePageCOVID19;
 
         public MainPageSteps(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
             _webDriver = _scenarioContext.Get<IWebDriver>("WebDriver");
             _mainPage = new MainPage(_webDriver);
-
+            _servicePageCOVID19 = new ServicePageCOVID19(_webDriver);
         }
 
 
@@ -40,10 +42,11 @@ namespace DiiaUITests.Steps
             _mainPage.ClickOnFirstServiceCard();
         }
 
-        [Then(@"I navigate to the service page")]
-        public void ThenINavigateToTheServicePage()
+        //переход на страницу первого сервиса(про ковид)
+        [Then(@"I navigate to the Covid service page with title ""(.*)""")]
+        public void ThenINavigateToTheCovidServicePageWithTitle(string expectedText)
         {
-            _mainPage.ClickOnFirstServiceCard();
+           Assert.AreEqual(expectedText, _servicePageCOVID19.GetTitleText());
         }
 
 
