@@ -18,7 +18,7 @@ namespace DiiaUITests.POM
                         
         private readonly By _arrowToTheRight = By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-next swiper-btn-next'])");
 
-        private readonly By _arrowToTheLeft = //By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-next swiper-btn-next'])");
+        private readonly By _arrowToTheLeft = //By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-next swiper-btn-prev'])");
         
         private readonly By _searchInputField = By.CssSelector(".input form-search_input");
 
@@ -45,6 +45,11 @@ namespace DiiaUITests.POM
         {
             _webDriver.FindElement(_arrowToTheRight).Click();
         }
+
+        //public string CheckActivenessOfMenu()
+        //{
+        //    return _webDriver.FindElement(_servicesHeaderMenuDropDownLink).GetAttribute("class").Contains("active") ? "active" : "inactive";
+        //}
         //как сравнить лучше???
 
 
@@ -62,9 +67,9 @@ namespace DiiaUITests.POM
 
 
         //сценарий 1 , по модулю Поиск
-        public void ClickOnSearchField()
+        public void ClickOnSearchField(string validSearch)
         {
-            _webDriver.FindElement(_searchInputField).Click();
+            _webDriver.FindElement(_searchInputField).SendKeys(validSearch);
         }
         public void ClickOnEnterButton()
         {

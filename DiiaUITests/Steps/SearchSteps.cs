@@ -12,6 +12,7 @@ namespace DiiaUITests.Steps
         private readonly ScenarioContext _scenarioContext;
         private readonly IWebDriver _webDriver;
         private readonly MainPage _mainPage;
+        private readonly ServicePageCOVID19 _servicePageCOVID19;
 
         public SearchSteps(ScenarioContext scenarioContext)
         {
@@ -35,9 +36,9 @@ namespace DiiaUITests.Steps
         }
 
         [When(@"I input ""(.*)"" in search field")]
-        public void WhenIInputInSearchField(string p0)
+        public void WhenIInputInSearchField(string validSearch)
         {
-            _mainPage.ClickOnSearchField(); //и ввести мол в поиск Взаэмодия
+            _mainPage.ClickOnSearchField(validSearch); //и ввести мол в поиск Взаэмодия
         }
 
         [When(@"Click button Enter")]
@@ -68,9 +69,9 @@ namespace DiiaUITests.Steps
         //}
 
         [When(@"I input invalid input ""(.*)"" in search field")]
-        public void WhenIInputInvalidInputInSearchField(string p0)
+        public void WhenIInputInvalidInputInSearchField(string invalidSearch)
         {
-            _mainPage.ClickOnSearchField(); //и ввести мол в поиск teyuw4tu
+            _mainPage.ClickOnSearchField(invalidSearch); //и ввести мол в поиск teyuw4tu
         }     
 
         [When(@"Click button Enter")]
