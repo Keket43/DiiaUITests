@@ -63,7 +63,7 @@ namespace DiiaUITests.Steps
         //сравнить тайтлы
 
         //третий сценарий Попюлар Фичи
-        //надо ли дублировать 2 такихже шага???
+      
 
         [When(@"I click on the swiper left button")]
         public void WhenIClickOnTheSwiperLeftButton()
