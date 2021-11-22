@@ -18,7 +18,7 @@ namespace DiiaUITests.POM
                         
         private readonly By _arrowToTheRight = By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-next swiper-btn-next'])");
 
-        private readonly By _arrowToTheLeft = //By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-next swiper-btn-prev'])");
+        private readonly By _arrowToTheLeft = By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-next swiper-btn-prev'])");
         
         private readonly By _searchInputField = By.CssSelector(".input form-search_input");
 
@@ -50,16 +50,12 @@ namespace DiiaUITests.POM
         //{
         //    return _webDriver.FindElement(_servicesHeaderMenuDropDownLink).GetAttribute("class").Contains("active") ? "active" : "inactive";
         //}
+        //лучше тру или фолм. Паблик Бул, а не стринг
         //как сравнить лучше???
 
 
         //сценарий 3
-
-        //если нужна таже кнопка? 2 шага повторяються
-        //public void ClickOnArrowToTheRightButton() 
-        //{
-        //    _webDriver.FindElement(_arrowToTheRight).Click();
-        //}
+        
         public void ClickOnArrowToTheLeftButton() 
         {
             _webDriver.FindElement(_arrowToTheLeft).Click();
@@ -67,7 +63,7 @@ namespace DiiaUITests.POM
 
 
         //сценарий 1 , по модулю Поиск
-        public void ClickOnSearchField(string validSearch)
+        public void InputInSearchField(string validSearch)
         {
             _webDriver.FindElement(_searchInputField).SendKeys(validSearch);
         }

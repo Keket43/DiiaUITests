@@ -11,38 +11,28 @@ namespace DiiaUITests.Steps
     {
         private readonly ScenarioContext _scenarioContext;
         private readonly IWebDriver _webDriver;
-        private readonly MainPage _mainPage;
-        private readonly ServicePageCOVID19 _servicePageCOVID19;
+        private readonly MainPage _mainPage;       
+        private readonly SearchResultPage _searchResultPage;
 
         public SearchSteps(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
             _webDriver = _scenarioContext.Get<IWebDriver>("WebDriver");
-            _mainPage = new MainPage(_webDriver);
-            _servicePageCOVID19 = new ServicePageCOVID19(_webDriver);
+            _mainPage = new MainPage(_webDriver);           
+            _searchResultPage = new SearchResultPage(_webDriver);
+
+
         }
 
-        //нужно ли опять с мейн пейдж начинать? и опять куки?
-        [Given(@"Main page is open")]
-        public void GivenMainPageIsOpen()
-        {
-            _mainPage.GoToMainPage();
-        }
-
-        [When(@"I click on cookie accept")]
-        public void WhenIClickOnCookieAccept()
-        {
-            _mainPage.ClickOnCookieAccept();
-        }
-
+        
         [When(@"I input ""(.*)"" in search field")]
         public void WhenIInputInSearchField(string validSearch)
         {
-            _mainPage.ClickOnSearchField(validSearch); //и ввести мол в поиск Взаэмодия
+            _mainPage.InputInSearchField(validSearch); //и ввести мол в поиск Взаэмодия
         }
 
-        [When(@"Click button Enter")]
-        public void WhenClickButtonEnter()
+        [When(@"Push button Enter")]
+        public void WhenClickButtonEnter() //Пуш а не клик
         {
             _mainPage.ClickOnEnterButton();
         }
@@ -50,40 +40,25 @@ namespace DiiaUITests.Steps
         [Then(@"Open search result page with text '(.*)'")]
         public void ThenOpenSearchResultPageWithText(string expectedText)
         {
-            Assert.AreEqual(expectedText, _servicePageCOVID19.GetRequestText());
+            Assert.AreEqual(expectedText, _searchResultPage.GetRequestText());
         }
 
 
         //2 scenario
-        //нужно ли опять с мейн пейдж начинать? и опять куки?
-        //[Given(@"Main page is open")]
-        //public void GivenMainPageIsOpen()
-        //{
-        //    _mainPage.GoToMainPage();
-        //}
-
-        //[When(@"I click on cookie accept")]
-        //public void WhenIClickOnCookieAccept()
-        //{
-        //    _mainPage.ClickOnCookieAccept();
-        //}
+        
 
         [When(@"I input invalid input ""(.*)"" in search field")]
         public void WhenIInputInvalidInputInSearchField(string invalidSearch)
         {
-            _mainPage.ClickOnSearchField(invalidSearch); //и ввести мол в поиск teyuw4tu
+            _mainPage.InputInSearchField(invalidSearch); //и ввести мол в поиск teyuw4tu
         }     
 
-        [When(@"Click button Enter")]
-        public void WhenClickButtonEnter()
+       
+        [Then(@"Open search result page with error message '(.*)'")]
+        public void ThenOpenSearchResultPageWithErrorMessage(string expectedText)
         {
-            _mainPage.ClickOnEnterButton();
+            Assert.AreEqual(expectedText, _searchResultPage.GetInvalidRequestText());
         }
 
-        [Then(@"Open search result page with text '(.*)'")]
-        public void ThenOpenSearchResultPageWithText(string expectedText)
-        {
-            Assert.AreEqual(expectedText, _servicePageCOVID19._invalidRequestText());
-        }
     }
 }

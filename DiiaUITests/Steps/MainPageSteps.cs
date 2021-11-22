@@ -60,6 +60,7 @@ namespace DiiaUITests.Steps
         {
             ScenarioContext.Current.Pending();
         }
+        //сравнить тайтлы
 
         //третий сценарий Попюлар Фичи
         //надо ли дублировать 2 такихже шага???
