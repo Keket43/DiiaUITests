@@ -1,9 +1,5 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DiiaUITests.POM
 {
@@ -18,11 +14,12 @@ namespace DiiaUITests.POM
 
         private readonly By _title = By.CssSelector(".service-type_title");
 
+               
+
 
         public string GetTitleText()
         {
-            return _webDriver.FindElement(_title).Text;
-            
-        }
+            return _webDriver.FindElement(_title).Text;            
+        }  
     }
 }

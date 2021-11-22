@@ -1,9 +1,5 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DiiaUITests.POM
 {
@@ -19,10 +15,15 @@ namespace DiiaUITests.POM
         private readonly By _cookieAccept = By.CssSelector(".cookies-1_btn-1");
         
         private readonly By _firstServiceCard = By.XPath("(.//*[@id='gromadyanam']//a[@class = 'swiper_services-slide-title'])[position()=1]");
+                        
+        private readonly By _arrowToTheRight = By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-next swiper-btn-next'])");
 
-        private readonly By _navigateToServicePage = By.XPath("(.//*[@id='gromadyanam']//a[@class = 'swiper_services-slide-title'])[position()=1]");
+        private readonly By _arrowToTheLeft = By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-next swiper-btn-prev'])");
+        
+        private readonly By _searchInputField = By.CssSelector(".input form-search_input");
 
-
+        private readonly By _enterButton = By.CssSelector(".btn btn_search-main");
+                
 
         public MainPage GoToMainPage()
         {
@@ -38,6 +39,48 @@ namespace DiiaUITests.POM
         {
             _webDriver.FindElement(_firstServiceCard).Click();
         }
-              
+
+        //сценарий 2
+        public void ClickOnArrowToTheRightButton()
+        {
+            _webDriver.FindElement(_arrowToTheRight).Click();
+        }
+
+        //public string CheckActivenessOfMenu()
+        //{
+        //    return _webDriver.FindElement(_servicesHeaderMenuDropDownLink).GetAttribute("class").Contains("active") ? "active" : "inactive";
+        //}
+        //лучше тру или фолм. Паблик Бул, а не стринг
+        //как сравнить лучше???
+
+
+        //сценарий 3
+        
+        public void ClickOnArrowToTheLeftButton() 
+        {
+            _webDriver.FindElement(_arrowToTheLeft).Click();
+        }
+
+
+        //сценарий 1 , по модулю Поиск
+        public void InputInSearchField(string validSearch)
+        {
+            _webDriver.FindElement(_searchInputField).SendKeys(validSearch);
+        }
+        public void ClickOnEnterButton()
+        {
+            _webDriver.FindElement(_enterButton).Click();
+        }
+
+        //сценарий 2 , по модулю Поиск
+        //public void ClickOnSearchField()
+        //{
+        //    _webDriver.FindElement(_searchInputField).Click();
+        //}
+        //public void ClickOnEnterButton()
+        //{
+        //    _webDriver.FindElement(_enterButton).Click();
+        //}
+
     }
 }

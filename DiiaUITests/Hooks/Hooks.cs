@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium.Chrome;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,8 +20,7 @@ namespace DiiaUITests.Hooks
         {
             _scenarioContext = scenarioContext;
         }
-        // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
-
+        
         [BeforeScenario]
         public void BeforeScenario()
         {
@@ -34,14 +34,13 @@ namespace DiiaUITests.Hooks
             driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(60);
 
             _scenarioContext.Add("WebDriver", driver);
-
-            //TODO: implement logic that has to run before executing each scenario
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
-            //TODO: implement logic that has to run after executing each scenario
+            IWebDriver driver = _scenarioContext.Get<IWebDriver>("WebDriver");
+            driver.Dispose();          
         }
     }
 }

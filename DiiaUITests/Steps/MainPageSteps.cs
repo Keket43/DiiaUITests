@@ -1,7 +1,6 @@
 ﻿using DiiaUITests.POM;
 using NUnit.Framework;
 using OpenQA.Selenium;
-using System;
 using TechTalk.SpecFlow;
 
 namespace DiiaUITests.Steps
@@ -47,6 +46,35 @@ namespace DiiaUITests.Steps
         public void ThenINavigateToTheCovidServicePageWithTitle(string expectedText)
         {
            Assert.AreEqual(expectedText, _servicePageCOVID19.GetTitleText());
+        }
+
+        //второй сценарий Попюлар Фичи
+        [When(@"I click on the swiper right button")]
+        public void WhenIClickOnTheSwiperRightButton()
+        {
+            _mainPage.ClickOnArrowToTheRightButton();
+        }
+       
+        [Then(@"Popular servises moved right on one position")]
+        public void ThenPopularServisesMovedRightOnOnePosition()
+        {
+            ScenarioContext.Current.Pending();
+        }
+        //сравнить тайтлы
+
+        //третий сценарий Попюлар Фичи
+        //надо ли дублировать 2 такихже шага???
+
+        [When(@"I click on the swiper left button")]
+        public void WhenIClickOnTheSwiperLeftButton()
+        {
+            _mainPage.ClickOnArrowToTheLeftButton();
+        }
+
+        [Then(@"Popular servises moved left on one position")]
+        public void ThenPopularServisesMovedLeftOnOnePosition()
+        {
+            ScenarioContext.Current.Pending();
         }
 
 
