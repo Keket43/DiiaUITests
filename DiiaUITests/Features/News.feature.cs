@@ -171,8 +171,8 @@ this.FeatureBackground();
  testRunner.When("I click on first news", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 20
- testRunner.Then("I navigate to the News page with title \"Відповіді на запитання щодо COVID-сертифі" +
-                        "катів у Дії: Мінцифра запустила лендинг\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I navigate to the first news page with title \"Відповіді на запитання щодо COVID-с" +
+                        "ертифікатів у Дії: Мінцифра запустила лендинг\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -221,8 +221,8 @@ this.FeatureBackground();
  testRunner.When("I click on third news", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 27
- testRunner.Then("I navigate to the News page with title \"COVID-сертифікат у Дії стане отримати про" +
-                        "стіше: що змінилося\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I navigate to the third news page with title \"COVID-сертифікат у Дії стане отрима" +
+                        "ти простіше: що змінилося\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
