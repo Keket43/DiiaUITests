@@ -18,9 +18,11 @@ namespace DiiaUITests.POM
                         
         private readonly By _arrowToTheRight = By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-next swiper-btn-next'])");
 
-        private readonly By _arrowToTheLeft = By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-next swiper-btn-prev'])");
-        
+        private readonly By _arrowToTheLeft = By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-prev swiper-btn-prev'])");
 
+        private readonly By _activenessOfPopularFirstService = By.CssSelector("[id='gromadyanam'] [class^='swiper-slide swiper_services-slide']");
+
+        
         public MainPage GoToMainPage()
         {
             _webDriver.Navigate().GoToUrl("https://diia.gov.ua/");
@@ -42,13 +44,10 @@ namespace DiiaUITests.POM
             _webDriver.FindElement(_arrowToTheRight).Click();
         }
 
-        //public string CheckActivenessOfMenu()
-        //{
-        //    return _webDriver.FindElement(_servicesHeaderMenuDropDownLink).GetAttribute("class").Contains("active") ? "active" : "inactive";
-        //}
-        //лучше тру или фолм. Паблик Бул, а не стринг
-        //как сравнить лучше???
-
+        public bool CheckActivenessOfPopularModule()
+        {
+            return _webDriver.FindElements(_activenessOfPopularFirstService)[0].GetAttribute("class").Contains("active");
+        }
 
         //сценарий 3
 
