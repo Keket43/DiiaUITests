@@ -58,12 +58,12 @@ namespace DiiaUITests.Steps
         [Then(@"Popular servises moved right on one position")]
         public void ThenPopularServisesMovedRightOnOnePosition()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(!_mainPage.CheckActivenessOfPopularModule());
         }
-        //сравнить тайтлы
+      
 
         //третий сценарий Попюлар Фичи
-      
+        
 
         [When(@"I click on the swiper left button")]
         public void WhenIClickOnTheSwiperLeftButton()
@@ -74,7 +74,7 @@ namespace DiiaUITests.Steps
         [Then(@"Popular servises moved left on one position")]
         public void ThenPopularServisesMovedLeftOnOnePosition()
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(_mainPage.CheckActivenessOfPopularModule());
         }
 
 
