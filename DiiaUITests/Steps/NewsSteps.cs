@@ -1,4 +1,5 @@
 ﻿using DiiaUITests.POM;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
@@ -18,7 +19,6 @@ namespace DiiaUITests.Steps
             _newsPage = new NewsPage(_webDriver);
         }
 
-
         [When(@"I click on news button in the header")]
         public void WhenIClickOnNewsButtonInTheHeader()
         {
@@ -26,9 +26,9 @@ namespace DiiaUITests.Steps
         }
         
         [Then(@"I navigate to the News page with title ""(.*)""")]
-        public void ThenINavigateToTheNewsPageWithTitle(string p0)
-        {
-            _newsPage.GetNewsPageTitle();
+        public void ThenINavigateToTheNewsPageWithTitle(string expectedText)
+        {            
+            Assert.AreEqual(expectedText, _newsPage.GetNewsPageTitle());
         }
 
         [When(@"I click on first news")]
@@ -38,21 +38,9 @@ namespace DiiaUITests.Steps
         }
 
         [Then(@"I navigate to the first news page with title ""(.*)""")]
-        public void ThenINavigateToTheFirstNewsPageWithTitle(string p0)
+        public void ThenINavigateToTheFirstNewsPageWithTitle(string expectedText)
         {
-            _newsPage.GetFirstNewsTitle();
-        }        
-
-        [When(@"I click on third news")]
-        public void WhenIClickOnThirdNews()
-        {
-           _newsPage.ClickOnThirdCard();
-        }
-
-        [Then(@"I navigate to the third news page with title ""(.*)""")]
-        public void ThenINavigateToTheThirdNewsPageWithTitle(string p0)
-        {
-            _newsPage.GetThirdNewsTitle();
-        }
+            Assert.AreEqual(expectedText, _newsPage.GetFirstNewsTitle());        
+        }      
     }
 }
