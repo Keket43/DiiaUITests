@@ -9,7 +9,7 @@ Background:
 Scenario: Check navigation to news page from the main page
 	When I click on cookie accept
 	When I click on q&a button in the header 
-	Then I navigate to the News page with title "Поширені запитання"
+	Then I navigate to the page with title "Поширені запитання"
 
 Scenario: Check navigation to the page with answer on question
 	Given FAQ page is opened
