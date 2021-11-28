@@ -1,6 +1,7 @@
 ﻿using DiiaUITests.POM;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace DiiaUITests.Steps
@@ -44,27 +45,29 @@ namespace DiiaUITests.Steps
         }
 
 
-        //2 scenar
+        [When(@"I click on more news button ""(.*)""")]
+        public void WhenIClickOnMoreNewsButton(string p0)
+        {
+            _newsPage.ClickOnMoreNewsButton();
+        }
 
-        //3 scenar
+        [Then(@"I see more news on the same page, the last one with title ""(.*)""")]
+        public void ThenISeeMoreNewsOnTheSamePageTheLastOneWithTitle(string expectedLastItemText)
+        {
+            Assert.AreEqual(expectedLastItemText, _newsPage.GetMoreNewsButtonSeeLastItemTitleText());
+        }
+
 
         [When(@"I click on fifth page button (.*)")]
-        public void WhenIClickOnFifthPageButton()
+        public void WhenIClickOnFifthPageButton(string button)
         {
-            _newsPage.ClickOnFifthPageButton();
+            _newsPage.ClickOnFifthPageButton(button);
         }
 
         [Then(@"I navigate to the fifth news page with first news with title ""(.*)""")]
         public void ThenINavigateToTheFifthNewsPageWithFirstNewsWithTitle(string expectedTextOnFifthPage)
-        {
+        {            
             Assert.AreEqual(expectedTextOnFifthPage, _newsPage.GetExpectedTextOnFifthPage());            
-        }
-
-        [Then(@"I navigate to the fifth news page with first news")]
-        public void ThenINavigateToTheFifthNewsPageWithFirstNews()
-        {
-            ScenarioContext.Current.Pending();
-        }
-
+        }       
     }
 }

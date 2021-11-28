@@ -42,10 +42,7 @@ namespace DiiaUITests.Steps
 
             Assert.AreEqual(actual: resultatRequest, expected: true);
         }
-
-
-
-        //2 scenario        
+        
 
         [When(@"I input invalid input ""(.*)"" in search field")]
         public void WhenIInputInvalidInputInSearchField(string invalidSearch)

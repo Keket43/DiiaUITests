@@ -23,10 +23,15 @@ namespace DiiaUITests.POM
         private readonly By _firstNewsPageTitleText = By.CssSelector(".page_title-text");
         private readonly By _thirdNewsPageTitleText = By.CssSelector(".article-level-1");
 
-        private readonly By _fifthPageButton = By.XPath("//*[@id='post-navigation']/ul/li[6]/a");
-                
+        private readonly By _moreNewsButton = By.CssSelector(".btn_more-news");
+        private readonly By _moreNewsLastItemTitleText = By.XPath("(.//*[@id='posts-items-box']//a[@class = 'posts_item-title'])[position()=12]");
+
+
+        private readonly By _fifthPageButton = By.XPath("//*[@id='post-navigation']/ul/li[6]/a");                
         private readonly By _expectedTextOnFifthPage = By.XPath("(.//*[@id='posts-items-box']//a[@class = 'posts_item-title'])[position()=1]");
+
        
+
         public void ClickOnNewsButton()
         {
             _webDriver.FindElement(_clickOnNewButton).Click();
@@ -53,7 +58,19 @@ namespace DiiaUITests.POM
             return _webDriver.FindElement(_thirdNewsPageTitleText).Text;
         }
 
-        public void ClickOnFifthPageButton()
+
+        public void ClickOnMoreNewsButton()
+        {
+            _webDriver.FindElement(_moreNewsButton).Click();
+        }
+        public string GetMoreNewsButtonSeeLastItemTitleText()
+        {
+            return _webDriver.FindElement(_moreNewsLastItemTitleText).Text;
+        }
+
+
+
+        public void ClickOnFifthPageButton(string button)
         {
             _webDriver.FindElement(_fifthPageButton).Click();
         }
