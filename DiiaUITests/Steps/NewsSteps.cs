@@ -41,6 +41,30 @@ namespace DiiaUITests.Steps
         public void ThenINavigateToTheFirstNewsPageWithTitle(string expectedText)
         {
             Assert.AreEqual(expectedText, _newsPage.GetFirstNewsTitle());        
-        }      
+        }
+
+
+        //2 scenar
+
+        //3 scenar
+
+        [When(@"I click on fifth page button (.*)")]
+        public void WhenIClickOnFifthPageButton()
+        {
+            _newsPage.ClickOnFifthPageButton();
+        }
+
+        [Then(@"I navigate to the fifth news page with first news with title ""(.*)""")]
+        public void ThenINavigateToTheFifthNewsPageWithFirstNewsWithTitle(string expectedTextOnFifthPage)
+        {
+            Assert.AreEqual(expectedTextOnFifthPage, _newsPage.GetExpectedTextOnFifthPage());            
+        }
+
+        [Then(@"I navigate to the fifth news page with first news")]
+        public void ThenINavigateToTheFifthNewsPageWithFirstNews()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
     }
 }

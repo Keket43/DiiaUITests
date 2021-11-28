@@ -34,14 +34,12 @@ namespace DiiaUITests.Steps
             _mainPage.ClickOnCookieAccept();
         }
 
-
         [When(@"I click on first service")]
         public void WhenIClickOnFirstService()
         {
             _mainPage.ClickOnFirstServiceCard();
         }
-
-        //переход на страницу первого сервиса(про ковид)
+               
         [Then(@"I navigate to the Covid service page with title ""(.*)""")]
         public void ThenINavigateToTheCovidServicePageWithTitle(string expectedText)
         {
@@ -57,26 +55,23 @@ namespace DiiaUITests.Steps
        
         [Then(@"Popular servises moved right on one position")]
         public void ThenPopularServisesMovedRightOnOnePosition()
-        {
-            ScenarioContext.Current.Pending();
+        {           
+            Assert.IsTrue(!_mainPage.CheckActivenessOfMenu());
         }
-        //сравнить тайтлы
 
-        //третий сценарий Попюлар Фичи
-      
 
         [When(@"I click on the swiper left button")]
         public void WhenIClickOnTheSwiperLeftButton()
         {
-            _mainPage.ClickOnArrowToTheLeftButton();
+            _mainPage.ClickToTheLeftSide();
         }
 
         [Then(@"Popular servises moved left on one position")]
-        public void ThenPopularServisesMovedLeftOnOnePosition()
+        public void ThenPopularServisesMovedOnOnePosition()
         {
-            ScenarioContext.Current.Pending();
+            string redirectLeft = _mainPage.MovedToTheLeft();
+            bool result = redirectLeft.Contains(redirectLeft);
+            Assert.AreEqual(actual: result, expected: true);
         }
-
-
     }
 }

@@ -6,17 +6,16 @@ In order to find quickly specific information
 	
 Background: 
 Given Main page is open
+When I click on cookie accept
 
 @valid
-Scenario: Check search results with valid input
-	When I click on cookie accept
+Scenario: Check search results with valid input	
 	When I input "Взаємодія" in search field
 	When Push Enter button
 	Then Open search result page with text 'За вашим запитом знайдено матеріалів: '
 
 @invalid
-Scenario: Check the search input with no results
-	When I click on cookie accept
+Scenario: Check the search input with no results	
 	When I input invalid input "teyuw4tu" in search field
 	When Push Enter button
 	Then Open search result page with error message 'За вашим запитом не знайдено матеріалів'

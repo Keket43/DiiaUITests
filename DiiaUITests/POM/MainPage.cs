@@ -11,15 +11,19 @@ namespace DiiaUITests.POM
         {
             _webDriver = webDriver;
         }
-              
+
         private readonly By _cookieAccept = By.CssSelector(".cookies-1_btn-1");
-        
+
         private readonly By _firstServiceCard = By.XPath("(.//*[@id='gromadyanam']//a[@class = 'swiper_services-slide-title'])[position()=1]");
-                        
+
         private readonly By _arrowToTheRight = By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-next swiper-btn-next'])");
 
-        private readonly By _arrowToTheLeft = By.XPath("(.//*[@id='gromadyanam']//div[@class = 'swiper_services-btn-next swiper-btn-prev'])");
+        private readonly By _popularServicesSlideActive = By.CssSelector("[id='gromadyanam'] [class^='swiper-slide swiper_services-slide']");
         
+        private readonly By _clikLeftButton = By.CssSelector("[class='swiper_services-btn-prev swiper-btn-prev']");
+
+        private readonly By _movedOneLeft = By.XPath("//*[@id='gromadyanam']/div[1]/div/div[2]/div[4]/div[1]/div/a");
+
 
         public MainPage GoToMainPage()
         {
@@ -42,23 +46,19 @@ namespace DiiaUITests.POM
             _webDriver.FindElement(_arrowToTheRight).Click();
         }
 
-        //public string CheckActivenessOfMenu()
-        //{
-        //    return _webDriver.FindElement(_servicesHeaderMenuDropDownLink).GetAttribute("class").Contains("active") ? "active" : "inactive";
-        //}
-        //лучше тру или фолм. Паблик Бул, а не стринг
-        //как сравнить лучше???
+        public bool CheckActivenessOfMenu() =>
+            _webDriver.FindElements(_popularServicesSlideActive)[0].GetAttribute("class").Contains("active");
 
 
         //сценарий 3
 
-        public void ClickOnArrowToTheLeftButton() 
+        public MainPage ClickToTheLeftSide()
         {
-            _webDriver.FindElement(_arrowToTheLeft).Click();
+            _webDriver.FindElement(_clikLeftButton).Click();
+            return this;
         }
 
-
-       
-
+        public string MovedToTheLeft() =>
+           _webDriver.FindElement(_movedOneLeft).Text;
     }
 }

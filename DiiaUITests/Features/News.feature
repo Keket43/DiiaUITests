@@ -19,10 +19,11 @@ Scenario: Check click on more news button
 	Then I navigate to the News page with title "Новини"
 	When I click on more news button "Більше новин"
 	Then 
-# как проверить??
+ как проверить??
 
 Scenario: Check click on fifth page  
 	When I click on news button in the header 
 	Then I navigate to the News page with title "Новини"
 	When I click on fifth page button 5
-	Then I navigate to the fifth news page with first news with title "ЕКТА і Дія допоможуть оформити страховий поліс для виїзду за кордон за кілька кліків"
+	#Then I navigate to the fifth news page with first news with title "ЕКТА і Дія допоможуть оформити страховий поліс для виїзду за кордон за кілька кліків"
+	Then I navigate to the fifth news page with first news

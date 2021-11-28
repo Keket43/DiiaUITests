@@ -1,6 +1,7 @@
 ﻿using DiiaUITests.POM;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace DiiaUITests.Steps
@@ -9,21 +10,21 @@ namespace DiiaUITests.Steps
     public class SearchSteps
     {
         private readonly ScenarioContext _scenarioContext;
-        private readonly IWebDriver _webDriver;            
+        private readonly IWebDriver _webDriver;
         private readonly SearchResultPage _searchResultPage;
 
         public SearchSteps(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
-            _webDriver = _scenarioContext.Get<IWebDriver>("WebDriver");                      
+            _webDriver = _scenarioContext.Get<IWebDriver>("WebDriver");
             _searchResultPage = new SearchResultPage(_webDriver);
         }
 
-       
+
         [When(@"I input ""(.*)"" in search field")]
         public void WhenIInputInSearchField(string validSearch)
         {
-            _searchResultPage.InputInSearchField(validSearch); //и ввести мол в поиск Взаэмодия
+            _searchResultPage.InputInSearchField(validSearch);
         }
 
         [When(@"Push Enter button")]
@@ -35,8 +36,13 @@ namespace DiiaUITests.Steps
         [Then(@"Open search result page with text '(.*)'")]
         public void ThenOpenSearchResultPageWithText(string expectedText)
         {
-            Assert.AreEqual(expectedText, _searchResultPage.GetRequestText());
+            Thread.Sleep(300);
+            string requestInfo = _searchResultPage.SearchInfoRequestText();
+            bool resultatRequest = requestInfo.Contains(expectedText);
+
+            Assert.AreEqual(actual: resultatRequest, expected: true);
         }
+
 
 
         //2 scenario        
@@ -44,9 +50,9 @@ namespace DiiaUITests.Steps
         [When(@"I input invalid input ""(.*)"" in search field")]
         public void WhenIInputInvalidInputInSearchField(string invalidSearch)
         {
-            _searchResultPage.InputInSearchField(invalidSearch); //и ввести мол в поиск teyuw4tu
-        }     
-               
+            _searchResultPage.InputInSearchField(invalidSearch);
+        }
+
         [Then(@"Open search result page with error message '(.*)'")]
         public void ThenOpenSearchResultPageWithErrorMessage(string expectedText)
         {
