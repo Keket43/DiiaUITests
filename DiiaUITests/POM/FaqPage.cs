@@ -19,6 +19,9 @@ namespace DiiaUITests.POM
         private readonly By _title = By.CssSelector("h1");
         private readonly By _cookieAccept = By.CssSelector(".cookies-1_btn-1");
         private readonly By _faqMenuItem = By.CssSelector("[href*='https://diia.gov.ua/faq']");
+        private readonly By _firstQuestionOnFaqPage = By.CssSelector("[href*='/faq/6']");
+        private readonly By _firstQuestionOnSideMenu = By.CssSelector("[href*='/faq/5']");
+
 
         public string GetTitleText()
         {
@@ -33,6 +36,16 @@ namespace DiiaUITests.POM
         {
             _webDriver.FindElement(_faqMenuItem).Click();
         }
+
+        public void ClickOnFirstQuestionOnFaqPage()
+        {
+            _webDriver.FindElement(_firstQuestionOnFaqPage).Click();
+        }
+        public void ClickOnFirstQuestionOnSideMenu()
+        {
+            _webDriver.FindElement(_firstQuestionOnSideMenu).Click();
+        }
+
 
     }
 }
