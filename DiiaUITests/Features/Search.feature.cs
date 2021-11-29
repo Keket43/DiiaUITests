@@ -87,6 +87,9 @@ namespace DiiaUITests.Features
 #line 8
 testRunner.Given("Main page is open", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
+#line 9
+testRunner.When("I click on cookie accept", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
@@ -98,7 +101,7 @@ testRunner.Given("Main page is open", ((string)(null)), ((TechTalk.SpecFlow.Tabl
                     "valid"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check search results with valid input", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 11
+#line 12
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -120,9 +123,6 @@ this.ScenarioInitialize(scenarioInfo);
                 this.ScenarioStart();
 #line 7
 this.FeatureBackground();
-#line hidden
-#line 12
- testRunner.When("I click on cookie accept", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
  testRunner.When("I input \"Взаємодія\" in search field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -170,15 +170,12 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 19
- testRunner.When("I click on cookie accept", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 20
  testRunner.When("I input invalid input \"teyuw4tu\" in search field", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 21
+#line 20
  testRunner.When("Push Enter button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 22
+#line 21
  testRunner.Then("Open search result page with error message \'За вашим запитом не знайдено матеріал" +
                         "ів\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

@@ -128,8 +128,9 @@ this.FeatureBackground();
  testRunner.When("I click on first news", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 15
- testRunner.Then("I navigate to the first news page with title \"Відповіді на запитання щодо COVID-с" +
-                        "ертифікатів у Дії: Мінцифра запустила лендинг\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I navigate to the first news page with title \"Мстислав Банік на Західній Україні:" +
+                        " «Вражає швидкість, з якою на місцях підтримали ініціативу створення офлайн-пунк" +
+                        "тів Команди підтримки Дії»\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -175,7 +176,8 @@ this.FeatureBackground();
  testRunner.When("I click on more news button \"Більше новин\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 21
- testRunner.Then("", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I see more news on the same page, the last one with title \"Без паперових документ" +
+                        "ів: як скористатися Дія.QR у ЦНАП\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -188,7 +190,7 @@ this.FeatureBackground();
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check click on fifth page", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
-#line 24
+#line 23
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -211,16 +213,16 @@ this.ScenarioInitialize(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line hidden
-#line 25
+#line 24
  testRunner.When("I click on news button in the header", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 26
+#line 25
  testRunner.Then("I navigate to the News page with title \"Новини\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 27
+#line 26
  testRunner.When("I click on fifth page button 5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 28
+#line 27
  testRunner.Then("I navigate to the fifth news page with first news with title \"ЕКТА і Дія допоможу" +
                         "ть оформити страховий поліс для виїзду за кордон за кілька кліків\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

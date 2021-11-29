@@ -12,7 +12,7 @@ namespace DiiaUITests.POM
             _webDriver = webDriver;
         }
 
-        private readonly By _clickOnNewButton = By.CssSelector("//*[@id='layout-header']/div[1]/div[1]/nav/ul/li[3]/a");
+        private readonly By _clickOnNewButton = By.XPath("//*[@id='layout-header']/div[1]/div[1]/nav/ul/li[3]/a");
         
         private readonly By _newsPageTitleText = By.CssSelector(".article-level-1");
 
@@ -20,8 +20,16 @@ namespace DiiaUITests.POM
 
         private readonly By _thirdNewsCard = By.XPath("(.//*[@id='posts-items-box']//a[@class = 'posts_item-title'])[position()=1]");
 
-        private readonly By _firstNewsPageTitleText = By.CssSelector(". page_title-text");
+        private readonly By _firstNewsPageTitleText = By.CssSelector(".page_title-text");
         private readonly By _thirdNewsPageTitleText = By.CssSelector(".article-level-1");
+
+        private readonly By _moreNewsButton = By.CssSelector(".btn_more-news");
+        private readonly By _moreNewsLastItemTitleText = By.XPath("(.//*[@id='posts-items-box']//a[@class = 'posts_item-title'])[position()=12]");
+
+
+        private readonly By _fifthPageButton = By.XPath("//*[@id='post-navigation']/ul/li[6]/a");                
+        private readonly By _expectedTextOnFifthPage = By.XPath("(.//*[@id='posts-items-box']//a[@class = 'posts_item-title'])[position()=1]");
+
        
 
         public void ClickOnNewsButton()
@@ -48,6 +56,27 @@ namespace DiiaUITests.POM
         public string GetThirdNewsTitle()
         {
             return _webDriver.FindElement(_thirdNewsPageTitleText).Text;
+        }
+
+
+        public void ClickOnMoreNewsButton()
+        {
+            _webDriver.FindElement(_moreNewsButton).Click();
+        }
+        public string GetMoreNewsButtonSeeLastItemTitleText()
+        {
+            return _webDriver.FindElement(_moreNewsLastItemTitleText).Text;
+        }
+
+
+
+        public void ClickOnFifthPageButton(string button)
+        {
+            _webDriver.FindElement(_fifthPageButton).Click();
+        }
+        public string GetExpectedTextOnFifthPage()
+        {
+            return _webDriver.FindElement(_expectedTextOnFifthPage).Text;
         }
     }
 }
