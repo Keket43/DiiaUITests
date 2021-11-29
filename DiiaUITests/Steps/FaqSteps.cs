@@ -24,6 +24,7 @@ namespace DiiaUITests.Steps
             _faqPage = new FaqPage(_webDriver);
         }
 
+        //Scenario 1: Check navigation to FAQ page from the main page
         [When(@"I click on q&a button in the header")]
         public void WhenIClickOnQAButtonInTheHeader()
         {
@@ -35,6 +36,34 @@ namespace DiiaUITests.Steps
         {
             Assert.AreEqual(expectedText, _faqPage.GetTitleText());
         }
+
+        //Scenario 2: Check navigation to the page with answer on question
+        [Given(@"FAQ page is opened")]
+        public void GivenFAQPageIsOpened()
+        {
+            _webDriver.Navigate().GoToUrl("https://diia.gov.ua/faq/");
+        }
+
+        [When(@"I click on first question")]
+        public void WhenIClickOnFirstQuestion()
+        {
+            _faqPage.ClickOnFirstQuestionOnFaqPage();
+        }
+
+        //Scenario 3: Check navigation to connected questions from the answer page
+        [Given(@"Question page is opened")]
+        public void GivenQuestionPageIsOpened()
+        {
+            _webDriver.Navigate().GoToUrl("https://diia.gov.ua/faq/6/");
+        }
+
+        [When(@"I click on first question on a side menu")]
+        public void WhenIClickOnFirstQuestionOnASideMenu()
+        {
+            _faqPage.ClickOnFirstQuestionOnSideMenu();
+        }
+
+
 
     }
 }
