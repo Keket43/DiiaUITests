@@ -1,4 +1,4 @@
-﻿using DiiaUITests.POM;
+using DiiaUITests.POM;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
@@ -58,8 +58,8 @@ namespace DiiaUITests.Steps
         {           
             Assert.IsTrue(!_mainPage.CheckActivenessOfMenu());
         }
-
-
+      
+        //третий сценарий Попюлар Фичи
         [When(@"I click on the swiper left button")]
         public void WhenIClickOnTheSwiperLeftButton()
         {

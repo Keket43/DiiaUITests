@@ -1,4 +1,4 @@
-﻿using OpenQA.Selenium;
+using OpenQA.Selenium;
 
 
 namespace DiiaUITests.POM
@@ -23,8 +23,7 @@ namespace DiiaUITests.POM
         private readonly By _clikLeftButton = By.CssSelector("[class='swiper_services-btn-prev swiper-btn-prev']");
 
         private readonly By _movedOneLeft = By.XPath("//*[@id='gromadyanam']/div[1]/div/div[2]/div[4]/div[1]/div/a");
-
-
+        
         public MainPage GoToMainPage()
         {
             _webDriver.Navigate().GoToUrl("https://diia.gov.ua/");
@@ -49,9 +48,7 @@ namespace DiiaUITests.POM
         public bool CheckActivenessOfMenu() =>
             _webDriver.FindElements(_popularServicesSlideActive)[0].GetAttribute("class").Contains("active");
 
-
         //сценарий 3
-
         public MainPage ClickToTheLeftSide()
         {
             _webDriver.FindElement(_clikLeftButton).Click();
