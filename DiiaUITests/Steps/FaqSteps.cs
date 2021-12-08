@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 
@@ -61,6 +62,50 @@ namespace DiiaUITests.Steps
         public void WhenIClickOnFirstQuestionOnASideMenu()
         {
             _faqPage.ClickOnFirstQuestionOnSideMenu();
+        }
+
+        //Scenario 4: Check the ability to send question with form on the FAQ page
+        [When(@"I click on the ask question button")]
+        public void WhenIClickOnTheAskQuestionButton()
+        {
+            Thread.Sleep(1000);
+            _faqPage.ClickOnAskQuestionButton();
+        }
+
+        [When(@"I fill the name input with text ""(.*)"" in the pop up form")]
+        public void WhenIFillTheNameInputWithTextInThePopUpForm(string name)
+        {
+            _faqPage.InputInNameField(name);
+        }
+
+        [When(@"I fill the email input with text ""(.*)"" in the pop up form")]
+        public void WhenIFillTheEmailInputWithTextInThePopUpForm(string email)
+        {
+            _faqPage.InputInEmailField(email);
+        }
+
+        [When(@"I fill the input question title with text ""(.*)"" in the pop up form")]
+        public void WhenIFillTheInputWithTextInThePopUpForm(string title)
+        {
+            _faqPage.InputInQuestionTitleField(title);
+        }
+
+        [When(@"I fill the question input with text ""(.*)"" in the pop up form")]
+        public void WhenIFillTheQuestionInputWithTextInThePopUpForm(string question)
+        {
+            _faqPage.InputInQuestionField(question);
+        }
+
+        [When(@"I click form submit button")]
+        public void WhenIClickFormSubmitButton()
+        {
+            _faqPage.ClickOnSubmitFormButton();
+        }
+
+        [Then(@"Pop up with title ""(.*)"" appears")]
+        public void ThenPopUpWithTitleAppears(string expectedText)
+        {
+            Assert.AreEqual(expectedText, _faqPage.GetPopupTitleText());
         }
 
 

@@ -254,7 +254,7 @@ this.FeatureBackground();
  testRunner.When("I click on cookie accept", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 29
- testRunner.When("I click on the button \"Поставити запитання\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click on the ask question button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 30
  testRunner.When("I fill the name input with text \"TestName\" in the pop up form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -263,13 +263,15 @@ this.FeatureBackground();
  testRunner.When("I fill the email input with text \"TestName@sorry.test\" in the pop up form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 32
- testRunner.When("I fill the input \"Тема питання\" with text \"Питання\" in the pop up form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I fill the input question title with text \"Питання\" in the pop up form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 33
- testRunner.When("I fill the input \"Поставте своє питання\" with text \"Питання таке\" in the pop up f" +
-                        "orm", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I fill the question input with text \"Питання таке\" in the pop up form", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 34
+ testRunner.When("I click form submit button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 35
  testRunner.Then("Pop up with title \"Дякуємо\" appears", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
