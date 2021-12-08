@@ -26,11 +26,12 @@ Scenario: Check navigation to connected questions from the answer page
 Scenario: Check the ability to send question with form on the FAQ page
 	Given FAQ page is opened
 	When I click on cookie accept
-	When I click on the button "Поставити запитання"
+	When I click on the ask question button
 	When I fill the name input with text "TestName" in the pop up form
 	When I fill the email input with text "TestName@sorry.test" in the pop up form
-	When I fill the input "Тема питання" with text "Питання" in the pop up form
-	When I fill the input "Поставте своє питання" with text "Питання таке" in the pop up form
+	When I fill the input question title with text "Питання" in the pop up form
+	When I fill the question input with text "Питання таке" in the pop up form
+	When I click form submit button
 	Then Pop up with title "Дякуємо" appears
 
 
